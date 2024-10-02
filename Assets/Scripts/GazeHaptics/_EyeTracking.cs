@@ -31,27 +31,27 @@ public class _EyeTracking : MonoBehaviour
 
     //audio
     public AudioSource audioSource1;
-    public AudioSource audioSource2;
-    public AudioSource audioSource3;
+    //public AudioSource audioSource2;
+    //public AudioSource audioSource3;
 
     public AudioClip audioClip1;
-    public AudioClip audioClip2;
-    public AudioClip audioClip3;
+    //public AudioClip audioClip2;
+    //public AudioClip audioClip3;
 
     public Vector3 hitPos;
 
     //振動源の位置
-    private Vector3 hapticPoint1 = new Vector3(-1.3f, 0.6f, 2.5f);
-    private Vector3 hapticPoint2 = new Vector3( 0.0f, 0.6f, 2.5f);
-    private Vector3 hapticPoint3 = new Vector3( 1.3f, 0.6f, 2.5f);
+    private Vector3 hapticPoint1 = new Vector3(-2.5f, 1.2f, 5.0f);
+    private Vector3 hapticPoint2 = new Vector3( 0.0f, 0.6f, 5.0f);
+    private Vector3 hapticPoint3 = new Vector3( 2.5f, 0.0f, 5.0f);
 
-    public bool playing1 { get; private set; }
+/*    public bool playing1 { get; private set; }
     public bool playing2 { get; private set; }
-    public bool playing3 { get; private set; }
+    public bool playing3 { get; private set; }*/
 
-    public bool moving1 { get; private set; }
+    /*public bool moving1 { get; private set; }
     public bool moving2 { get; private set; }
-    public bool moving3 { get; private set; }
+    public bool moving3 { get; private set; }*/
 
     private float startTime;
 
@@ -86,13 +86,13 @@ public class _EyeTracking : MonoBehaviour
         audioSource2.clip = audioClip2;
         audioSource3.clip = audioClip3;*/
 
-        playing1 = false;
-        playing2 = false;
-        playing3 = false;
+        /* playing1 = false;
+         playing2 = false;
+         playing3 = false;*/
 
-        moving1 = false;
+        /*moving1 = false;
         moving2 = false;
-        moving3 = false;
+        moving3 = false;*/
     }
 
     //コントローラーのボタンを押すとHapticを再生、停止
@@ -123,9 +123,9 @@ public class _EyeTracking : MonoBehaviour
                     //audioSource2.Stop();
                     //audioSource3.Stop();
 
-                    moving1 = false;
+                    /*moving1 = false;
                     moving2 = false;
-                    moving3 = false;
+                    moving3 = false;*/
 
 
                     //Debug.Log("Vibration should stop.");
@@ -146,33 +146,58 @@ public class _EyeTracking : MonoBehaviour
         {
             float dis1 = Vector3.Distance(hapticPoint1, hitPos);
             float dis2 = Vector3.Distance(hapticPoint2, hitPos);
+            float dis3 = Vector3.Distance(hapticPoint3, hitPos);
             Debug.Log("dis1:" + dis1);
             Debug.Log("dis2:" + dis2);
+            Debug.Log("dis3:" + dis3);
 
-            float amp = Mathf.Exp(-dis1) + Mathf.Exp(-dis2);
+            float amp = Mathf.Exp(-dis1) + Mathf.Exp(-dis2) + Mathf.Exp(-dis3);
             _player1.amplitude = amp; // ゲインの変更
         }
     }
 
     void AdjustHapticAmplitude2 (Vector3 hitPos)
     {
-        if (_player1 != null)
+        if (_player1 != null && _player2 != null && _player3 != null)
         {
             float dis1 = Vector3.Distance(hapticPoint1, hitPos);
             float dis2 = Vector3.Distance(hapticPoint2, hitPos);
-            Debug.Log("dis1:" + dis1);
-            Debug.Log("dis2:" + dis2);
+            float dis3 = Vector3.Distance(hapticPoint3, hitPos);
+            
+            float dis = Mathf.Min(dis1, dis2, dis3);
+            float amp = Mathf.Exp(-dis);
 
-            float dis = Mathf.Min(dis1, dis2);
-            float amp = Mathf.Exp(dis);
-            _player1.amplitude = amp; // ゲインの変更
+            if(dis == dis1)
+            {
+                _player1.amplitude = amp;
+                _player1.priority = 1;
+                _player2.priority = 0;
+                _player3.priority = 0;
+                Debug.Log("dis1:" + dis1);
+            }
+            else if(dis == dis2)
+            {
+                _player2.amplitude = amp;
+                _player1.priority = 0;
+                _player2.priority = 1;
+                _player3.priority = 0;
+                Debug.Log("dis2:" + dis2);
+            }
+            else if (dis == dis3)
+            {
+                _player3.amplitude = amp;
+                _player1.priority = 0;
+                _player2.priority = 0;
+                _player3.priority = 1;
+                Debug.Log("dis3:" + dis3);
+            }
         }
     }
 
-    void AdjustHapticAmplitude3 (Vector3 hitPos)
+    /*void AdjustHapticAmplitude3 (Vector3 hitPos)
     {
         float amp = 0.0f;
-        /*
+        *//*
         if (_player1 != null && moving1)
         {
             float dis = Vector3.Distance(hapticPoint1, hitPos);
@@ -190,7 +215,7 @@ public class _EyeTracking : MonoBehaviour
             float dis = Vector3.Distance(hapticPoint3, hitPos);
             amp = Mathf.Exp(-dis);
             _player3.amplitude = amp;
-        }*/
+        }*//*
 
         if(_player1 != null)
         {
@@ -215,9 +240,9 @@ public class _EyeTracking : MonoBehaviour
         }
 
         Debug.Log("amp: " + amp);
-    }
+    }*/
 
-    void Moving (float nowTime)
+    /*void Moving (float nowTime)
     {
         float time = nowTime - startTime;
         Debug.Log(time);
@@ -246,43 +271,21 @@ public class _EyeTracking : MonoBehaviour
             moving2 = false;
             moving3 = false;
         }
-    }
+    }*/
 
     // フレーム更新毎に呼ばれる
     void Update()
     {
         HandleControllerInput(OVRInput.Controller.RTouch);
 
-        Moving(Time.time);
-        /*
-        if(moving2 && playing1)
-        {
-            _player1.Stop();
-            _player2.Play(Controller.Right);
-
-            //audioSource2.Stop();
-            //audioSource3.Play();
-
-            playing1 = false;
-        }
-
-        if (moving3 && playing2)
-        {
-            _player2.Stop();
-            _player3.Play(Controller.Right);
-
-            //audioSource2.Stop();
-            //audioSource3.Play();
-
-            playing2 = false;
-        }
-        */
-        if (isPlaying && !moving1 && !moving2 && !moving3 && playing3)
+        //Moving(Time.time);
+ 
+        /*if (isPlaying && !moving1 && !moving2 && !moving3)
         {
             isPlaying = false;
             _player1.Stop();
             audioSource1.Stop();
-        }
+        }*/
 
         //Debug.Log(eyeGaze);
         if (eyeGaze == null) return;
@@ -299,7 +302,7 @@ public class _EyeTracking : MonoBehaviour
             {
                 hitBool = true;
                 hitPos = hit.point;
-                AdjustHapticAmplitude3(hitPos);
+                AdjustHapticAmplitude2(hitPos);
 
                 //Debug.Log("Should feel vibration.");
             }
@@ -311,14 +314,14 @@ public class _EyeTracking : MonoBehaviour
                 {
                     _player1.amplitude = 0.0f; // ゲインの変更
                 }
-                /*if (_player2 != null)
+                if (_player2 != null)
                 {
                     _player2.amplitude = 0.0f; // ゲインの変更
                 }
                 if (_player3 != null)
                 {
                     _player3.amplitude = 0.0f; // ゲインの変更
-                }*/
+                }
             }
 
             //Debug.Log("amp:" + _player1.amplitude);
