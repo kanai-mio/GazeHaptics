@@ -59,6 +59,8 @@ public class eyeTracking : MonoBehaviour
             Ray ray = new Ray(Camera.transform.position, direction);
             RaycastHit hit;
 
+            Debug.Log("OK");
+
             var isHit = Physics.Raycast(ray, out hit, 25.0f);
 
             if (isHit)
@@ -72,7 +74,6 @@ public class eyeTracking : MonoBehaviour
                     hitBool2 = true;
                 }
 
-                //hitInfo = hit;
                 HitPoint = hit.point;
             }
             else
@@ -97,15 +98,7 @@ public class eyeTracking : MonoBehaviour
 
             //始点, 終点を設定し, 描画
             linerend.SetPosition(0, ray.origin);
-            if(hitBool1 == true ^ hitBool2 == true)
-            {
-                linerend.SetPosition(1, HitPoint);
-            }
-            else
-            {
-                linerend.SetPosition(1, ray.origin + ray.direction * 10);
-            }
-            
+            linerend.SetPosition(1, ray.origin + ray.direction * 10);
         }
     }
 }
