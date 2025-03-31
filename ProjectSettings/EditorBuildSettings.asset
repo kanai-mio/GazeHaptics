@@ -32,10 +32,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AudioStream/Demo/AudioStreamInput/AudioStreamInput2DDemo.unity
     guid: 6ec0d41e825e9af4dae41ea3d5a29e90
-  - enabled: 1
+  - enabled: 0
     path: Assets/AudioStream/Demo/AudioStreamInput/AudioStreamInputDemo.unity
     guid: 3936a6da1579ca84e93a9f069abde90d
-  - enabled: 1
+  - enabled: 0
     path: Assets/AudioStream/Demo/AudioStreamInput/AudioStreamInput_iOS_ExternalDevicesDemo.unity
     guid: d4dca815ea1d9b346b64ca88070c6916
   - enabled: 0
@@ -105,20 +105,77 @@ EditorBuildSettings:
     path: Assets/AudioStream/Demo/AudioStreamListener/AudioStreamListenerDemo.unity
     guid: 7e1caeb9f0bfbda4b9d5a024fe84d602
   - enabled: 1
-    path: Assets/_UserStudy/1_start/StartScene.unity
+    path: Assets/_UserStudy/0_tuning/tuning1.unity
+    guid: 8fec8406cfdffcf4f9ed4af48da6b63d
+  - enabled: 1
+    path: Assets/_UserStudy/0_tuning/tuning2.unity
+    guid: 8995c50fda8e14d40a14d8502b703f80
+  - enabled: 1
+    path: Assets/_UserStudy/0_tuning/tuning3.unity
+    guid: 20da218aa5f6d6f43aeab16e7d54c289
+  - enabled: 1
+    path: Assets/_UserStudy/0_tuning/tuning4.unity
+    guid: 02911846113c86f45b212340442a8b4d
+  - enabled: 1
+    path: Assets/_UserStudy/0_tuning/tuning5.unity
+    guid: d0596a13d6d48c64bb98d70bf29554f1
+  - enabled: 1
+    path: Assets/_UserStudy/0_tuning/tuning6.unity
+    guid: 3fd963114393b084d8ad686f049e5ba6
+  - enabled: 1
+    path: Assets/_UserStudy/1_practice/2_contents/_scene0.unity
+    guid: c6ed0ea760b37194a9930b4ccc99f1be
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/1_start/StartScene1.unity
+    guid: ad11f3735b4e9424398e4924d4a44a4c
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/2_contents/_scene1-1.unity
+    guid: 2a000dced7bc40243b708a1f6b070805
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/2_contents/_scene1-2.unity
+    guid: 52ef689a83a4c2e478662ceb4f45221d
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/2_contents/_scene1-3.unity
+    guid: 15a1d4d2fc9f73f4c8141c09dbd63257
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/2_contents/_scene1-4.unity
+    guid: 561c0319f4375924ca0267b40e4ca623
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/2_contents/_scene1-5.unity
+    guid: cf6ad9922c0e1ff499b27ba0833bbfcc
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/2_contents/_scene1-6.unity
+    guid: d065db3a094c8d641bd8331618066ce6
+  - enabled: 1
+    path: Assets/_UserStudy/_task1/3_Questionnaire/Questionnaire_1.unity
+    guid: 626961be917ec084e9106d4e136bd87e
+  - enabled: 1
+    path: Assets/_UserStudy/_task2/1_start/StartScene2.unity
     guid: 25cdca771685bb643b151a73b939813a
   - enabled: 1
-    path: Assets/_UserStudy/2_contents/_scene1.unity
-    guid: 9acada0d9e10c684caa9f3e3bbc76280
+    path: Assets/_UserStudy/_task2/2_contents/_scene2-1.unity
+    guid: 5d756cc9d15ea814c94491229ae9f24d
   - enabled: 1
-    path: Assets/_UserStudy/2_contents/_scene3.unity
-    guid: 9f63d9d5146c5a74f86cc0abe6bf6d8e
+    path: Assets/_UserStudy/_task2/2_contents/_scene2-2.unity
+    guid: b556e880e50a956458b5ca96ecc93068
+  - enabled: 1
+    path: Assets/_UserStudy/_task2/2_contents/_scene2-3.unity
+    guid: 2810c50c897c2de4592d411c761ce743
+  - enabled: 1
+    path: Assets/_UserStudy/_task2/2_contents/_scene2-4.unity
+    guid: dd70c2ceb96fbc5419a5bf35237d7198
+  - enabled: 1
+    path: Assets/_UserStudy/_task2/2_contents/_scene2-5.unity
+    guid: 25da8b11eaa39bc47ac8b49f85b93e54
+  - enabled: 1
+    path: Assets/_UserStudy/_task2/2_contents/_scene2-6.unity
+    guid: f54e9d4c12d19ef428708fc7cd5dea66
+  - enabled: 1
+    path: Assets/_UserStudy/_task2/3_questionnaire/Questionnaire_2.unity
+    guid: a36182b5da69bd940a3f707a7d26ad52
   - enabled: 1
     path: Assets/_UserStudy/4_last/last.unity
     guid: e517275bcd6f07b4f906a407fee599fa
-  - enabled: 1
-    path: Assets/_UserStudy/3_questionnaire/Questionnaire.unity
-    guid: a36182b5da69bd940a3f707a7d26ad52
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bd726186c770db046896acdb3ea17243, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 93b19e471d70c5548977bb4c297fedff, type: 2}
