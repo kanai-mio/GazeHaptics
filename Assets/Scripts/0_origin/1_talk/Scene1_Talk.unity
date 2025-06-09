@@ -1616,6 +1616,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_XRTrackingOrigin: {fileID: 0}
+  m_ActionsAsset: {fileID: 0}
+  m_PointAction: {fileID: 0}
+  m_MoveAction: {fileID: 0}
+  m_SubmitAction: {fileID: 0}
+  m_CancelAction: {fileID: 0}
+  m_LeftClickAction: {fileID: 0}
+  m_MiddleClickAction: {fileID: 0}
+  m_RightClickAction: {fileID: 0}
+  m_ScrollWheelAction: {fileID: 0}
+  m_TrackedDevicePositionAction: {fileID: 0}
+  m_TrackedDeviceOrientationAction: {fileID: 0}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
+  m_CursorLockBehavior: 0
 --- !u!1 &164631562
 GameObject:
   m_ObjectHideFlags: 0
@@ -3879,7 +3897,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 0.398
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7128,7 +7146,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -7219,7 +7237,7 @@ Transform:
   m_GameObject: {fileID: 968408017}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.005546555, y: 1.990397, z: 1.6664264}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10332,10 +10350,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1422878591}
-  - component: {fileID: 1422878590}
   - component: {fileID: 1422878592}
   - component: {fileID: 1422878594}
   - component: {fileID: 1422878593}
+  - component: {fileID: 1422878595}
   m_Layer: 0
   m_Name: gaze_haptics
   m_TagString: Untagged
@@ -10343,30 +10361,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1422878590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1422878589}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a289898a25b50a1418c4847efa9b2d69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Camera: {fileID: 1764225007}
-  screen: {fileID: 1853082009}
-  isPlaying: 0
-  audioSource1: {fileID: 968408018}
-  audioSource2: {fileID: 1837834320}
-  audioClip1: {fileID: 8300000, guid: 08391f4e2490beb43bcbffebf178a814, type: 3}
-  audioClip2: {fileID: 8300000, guid: dd1d5037be92d4d4589dc89c2b92292a, type: 3}
-  hapticSource1: {fileID: 479813269}
-  hapticSource2: {fileID: 1861897352}
-  hapticClip1: {fileID: 8300000, guid: 08391f4e2490beb43bcbffebf178a814, type: 3}
-  hapticClip2: {fileID: 8300000, guid: dd1d5037be92d4d4589dc89c2b92292a, type: 3}
-  hitPos: {x: 0, y: 0, z: 0}
 --- !u!4 &1422878591
 Transform:
   m_ObjectHideFlags: 0
@@ -10522,6 +10516,34 @@ MonoBehaviour:
   ApplyRotation: 1
   ReferenceFrame: {fileID: 0}
   TrackingMode: 2
+--- !u!114 &1422878595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422878589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b41652510233e148acd39c9b4e6a9c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 1764225007}
+  termNo: 1
+  audioSources:
+  - {fileID: 968408018}
+  - {fileID: 1837834320}
+  hapticSources:
+  - {fileID: 479813269}
+  - {fileID: 1861897352}
+  hitPos: {x: 0, y: 0, z: 0}
+  hapticPoints:
+  - {x: -1.5, y: 0.3, z: 5}
+  - {x: 1.5, y: 0.3, z: 5}
+  objectNum: 2
+  a:
+  - 1
+  - 1
 --- !u!1 &1431490886
 GameObject:
   m_ObjectHideFlags: 0
@@ -10825,7 +10847,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506491763}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.0001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12294,7 +12316,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -12385,7 +12407,7 @@ Transform:
   m_GameObject: {fileID: 1837834319}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.005546555, y: 1.990397, z: 1.6664264}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12592,7 +12614,7 @@ Transform:
   m_GameObject: {fileID: 1853082009}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 5}
+  m_LocalPosition: {x: 0, y: 0.5, z: 5.01}
   m_LocalScale: {x: 5.5, y: 3.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12685,7 +12707,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
