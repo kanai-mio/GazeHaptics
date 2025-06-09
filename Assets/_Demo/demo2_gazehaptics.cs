@@ -30,11 +30,11 @@ public class demo2_gazehaptics : MonoBehaviour
 
     public int objectNum;
 
-    //振動の傾斜
+    /*//振動の傾斜
     public float[] a;
 
     public TextAsset csvFile; // UnityのInspectorでCSVファイルをアタッチ
-
+*/
     //視点座標の取得
     bool IntersectRayWithPlane(Vector3 rayOrigin, Vector3 rayDirection, out Vector3 hitPos)
     {
@@ -65,7 +65,7 @@ public class demo2_gazehaptics : MonoBehaviour
         for (int i = 0; i < objectNum; i++)
         {
             float vol = Mathf.Exp(-distances[i]);
-            hapticSources[i].volume = vol * a[i];
+            hapticSources[i].volume = vol;
             //Debug.Log("vol" + ": " + vol);
             //Debug.Log("vol" + i + ": " + hapticSources[i].volume);
         }
@@ -84,7 +84,7 @@ public class demo2_gazehaptics : MonoBehaviour
         {
             if (i == minIndex)
             {
-                hapticSources[i].volume = a[i];
+                hapticSources[i].volume = 1;
             }
             else
             {
@@ -96,7 +96,6 @@ public class demo2_gazehaptics : MonoBehaviour
 
     void AdjustHapticAmplitude(float[] distances)
     {
-        termNo = IDdata.termNo;
         if (termNo == 1)
         {
             AdjustHapticAmplitude1(distances);
@@ -109,7 +108,7 @@ public class demo2_gazehaptics : MonoBehaviour
         {
             for (int i = 0; i < objectNum; i++)
             {
-                hapticSources[i].volume = 0.4f * a[i];
+                hapticSources[i].volume = 0.4f;
             }
         }
     }
@@ -122,7 +121,7 @@ public class demo2_gazehaptics : MonoBehaviour
         isPlaying = false;
         Debug.Log($"termNo:{termNo}");
 
-        string[] lines = csvFile.text.Split('\n'); // 改行で行を分割
+        /*string[] lines = csvFile.text.Split('\n'); // 改行で行を分割
         string[] columns = lines[0].Split(','); // カンマで列を分割
         for (int i = 0; i < objectNum; i++)
         {
@@ -131,12 +130,23 @@ public class demo2_gazehaptics : MonoBehaviour
             {
                 a[i] = amp;
             }
+        }*/
+
+        double startTime = Time.time + 1.0f;
+        foreach (var ausioSource in audioSources)
+        {
+            ausioSource.PlayScheduled(startTime);
+        }
+        foreach (var hapticSource in hapticSources)
+        {
+            hapticSource.PlayScheduled(startTime);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+
         //Debug.Log(eyeGaze);
         if (eyeGaze == null) return;
 

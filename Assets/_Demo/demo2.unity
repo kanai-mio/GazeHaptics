@@ -2572,6 +2572,7 @@ GameObject:
   m_Component:
   - component: {fileID: 250172320}
   - component: {fileID: 250172319}
+  - component: {fileID: 250172321}
   m_Layer: 0
   m_Name: hapticSource2
   m_TagString: Untagged
@@ -2590,7 +2591,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8652f40af4f836f40956cd511af65922, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -2690,6 +2691,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!169 &250172321
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 250172318}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.013187813
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &254470929
 GameObject:
   m_ObjectHideFlags: 0
@@ -4504,6 +4530,7 @@ GameObject:
   m_Component:
   - component: {fileID: 479813270}
   - component: {fileID: 479813269}
+  - component: {fileID: 479813271}
   m_Layer: 0
   m_Name: hapticSource0
   m_TagString: Untagged
@@ -4522,7 +4549,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 78f5352fdcbcba044bad6f3b01226aff, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -4622,6 +4649,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!169 &479813271
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 479813268}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.013187813
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &480422905
 GameObject:
   m_ObjectHideFlags: 0
@@ -8550,7 +8602,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 78f5352fdcbcba044bad6f3b01226aff, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -10405,7 +10457,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8652f40af4f836f40956cd511af65922, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -12694,11 +12746,6 @@ MonoBehaviour:
   - {x: 2, y: 1, z: 5}
   - {x: 0, y: 1, z: 5}
   objectNum: 3
-  a:
-  - 0
-  - 0
-  - 0
-  csvFile: {fileID: 4900000, guid: b16609a8eb824b641a7502cb2b203bd4, type: 3}
 --- !u!1 &1430251210
 GameObject:
   m_ObjectHideFlags: 0
@@ -14224,7 +14271,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   m_audioClip: {fileID: 8300000, guid: fcebaf91768e9604eadcb0727a2b7734, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -15728,6 +15775,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1861897353}
   - component: {fileID: 1861897352}
+  - component: {fileID: 1861897354}
   m_Layer: 0
   m_Name: hapticSource1
   m_TagString: Untagged
@@ -15746,7 +15794,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   m_audioClip: {fileID: 8300000, guid: fcebaf91768e9604eadcb0727a2b7734, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -15846,6 +15894,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!169 &1861897354
+AudioLowPassFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1861897351}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_LowpassResonanceQ: 1
+  lowpassLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.013187813
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1864070319
 GameObject:
   m_ObjectHideFlags: 0
