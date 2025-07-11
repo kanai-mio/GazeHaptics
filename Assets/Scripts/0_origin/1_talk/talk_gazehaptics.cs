@@ -117,11 +117,11 @@ public class talk_gazehaptics : MonoBehaviour
         eyeGaze = GetComponent<OVREyeGaze>();
         foreach (var audioSource in audioSources)
         {
-            audioSource.PlayScheduled(1.0f);
+            audioSource.PlayScheduled(5.0f);
         }
         foreach (var hapticSource in hapticSources)
         {
-            hapticSource.PlayScheduled(1.0f);
+            hapticSource.PlayScheduled(5.0f);
         }
     }
 
