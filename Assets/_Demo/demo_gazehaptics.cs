@@ -7,8 +7,15 @@ public class demo_gazehaptics : MonoBehaviour
     OVREyeGaze eyeGaze;
     public Camera Camera;
 
+    public Transform Head;
+
+    //public GameObject Cylinder;
+
     //交差判定
     //public bool hitBool { get; private set; }
+
+    //視線の先に配置するオブジェクト
+    public GameObject shape;
 
     //再生中かどうか
     public bool isPlaying = false;
@@ -121,6 +128,14 @@ public class demo_gazehaptics : MonoBehaviour
         eyeGaze = GetComponent<OVREyeGaze>();
         //hitBool = false;
         isPlaying = false;
+        Vector3 headPos = new Vector3(0.0f, 1.0f, 0.0f);
+        /*Head.position = headPos;
+        Head.rotation = Quaternion.Euler(0f, 90f, 0f); // ワールド回転*/
+
+        /*for (int i=0; i<3; i++)
+        {
+            Cylinders[i].SetParent(referenceObject, false);
+        }*/
     }
 
     // Update is called once per frame
@@ -136,6 +151,9 @@ public class demo_gazehaptics : MonoBehaviour
             Vector3 direction = (eyeGaze.transform.rotation * Vector3.forward).normalized;
             Ray ray = new Ray(Camera.transform.position, direction);
             RaycastHit hit;
+            shape.transform.position = Camera.transform.position + direction * 3.0f;
+
+            hitPos = Camera.transform.position + direction * 5.0f;
 
             //平面との交差判定
             if (IntersectRayWithPlane(ray.origin, ray.direction, out hitPos))
@@ -149,6 +167,8 @@ public class demo_gazehaptics : MonoBehaviour
 
                 Debug.Log("hitPos: " + hitPos);
 
+                //shape.transform.position = hitPos;
+
                 AdjustHapticAmplitude(distances);
             }
             else
@@ -157,7 +177,7 @@ public class demo_gazehaptics : MonoBehaviour
                 {
                     hapticSources[i].volume = 0.0f;
                 }
-            }            
+            }
 
             //LineRendererコンポーネントの取得
             linerend = this.GetComponent<LineRenderer>();
@@ -177,22 +197,26 @@ public class demo_gazehaptics : MonoBehaviour
             //float value = Mathf.Clamp01(testValues[i]);
 
             Vector3 scale = Cylinders[i].localScale;
-            float oldHeight = scale.y;
 
-            scale.y = Mathf.Lerp(0, 1, value) * 0.8f;
+            scale.y = Mathf.Lerp(0, 1, value) * 0.5f;
+            //scale.y = value * 0.5f;
             Cylinders[i].localScale = scale;
 
             float newHeight = Mathf.Lerp(0, 1, value) * 0.8f;  // これでscale.yが決まる
 
-            Cylinders[i].localScale = new Vector3(scale.x, newHeight, scale.z);
+            //Cylinders[i].localScale = new Vector3(scale.x, newHeight, scale.z);
 
             // Cylinderはデフォルトで高さ2だから、scale.y = 1なら高さ2になる
-            float actualHeight = newHeight * 2f;
+            //float actualHeight = newHeight * 2f;
 
             // 床に置くなら高さの半分だけ上げる
-            Vector3 pos = Cylinders[i].position;
-            pos.y = actualHeight * 0.5f;
-            Cylinders[i].position = pos;
+            //Vector3 pos = Cylinders[i].position;
+            //pos.y = scale.y + 0.1f;
+            //Cylinders[i].position = pos;
+            Vector3 localPos = Cylinders[i].localPosition;
+            localPos.y = scale.y + 0.1f;
+            Cylinders[i].localPosition = localPos;
+
         }
     }
 }

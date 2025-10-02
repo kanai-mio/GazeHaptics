@@ -7,6 +7,12 @@ public class demo2_gazehaptics : MonoBehaviour
     OVREyeGaze eyeGaze;
     public Camera Camera;
 
+    //LineRendererを用いる
+    LineRenderer linerend;
+
+    //視線の先に配置するオブジェクト
+    public GameObject shape;
+
     //交差判定
     //public bool hitBool { get; private set; }
 
@@ -30,11 +36,11 @@ public class demo2_gazehaptics : MonoBehaviour
 
     public int objectNum;
 
-    /*//振動の傾斜
-    public float[] a;
+    //振動の傾斜
+    public float a;
 
-    public TextAsset csvFile; // UnityのInspectorでCSVファイルをアタッチ
-*/
+    //public TextAsset csvFile; // UnityのInspectorでCSVファイルをアタッチ
+
     //視点座標の取得
     bool IntersectRayWithPlane(Vector3 rayOrigin, Vector3 rayDirection, out Vector3 hitPos)
     {
@@ -64,7 +70,7 @@ public class demo2_gazehaptics : MonoBehaviour
     {
         for (int i = 0; i < objectNum; i++)
         {
-            float vol = Mathf.Exp(-distances[i]);
+            float vol = Mathf.Exp(-a * distances[i]);
             hapticSources[i].volume = vol;
             //Debug.Log("vol" + ": " + vol);
             //Debug.Log("vol" + i + ": " + hapticSources[i].volume);
@@ -121,17 +127,6 @@ public class demo2_gazehaptics : MonoBehaviour
         isPlaying = false;
         Debug.Log($"termNo:{termNo}");
 
-        /*string[] lines = csvFile.text.Split('\n'); // 改行で行を分割
-        string[] columns = lines[0].Split(','); // カンマで列を分割
-        for (int i = 0; i < objectNum; i++)
-        {
-            Debug.Log($"columns[{i}]: {columns[i]}");
-            if (float.TryParse(columns[i], out float amp))
-            {
-                a[i] = amp;
-            }
-        }*/
-
         double startTime = Time.time + 1.0f;
         foreach (var ausioSource in audioSources)
         {
@@ -146,7 +141,6 @@ public class demo2_gazehaptics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         //Debug.Log(eyeGaze);
         if (eyeGaze == null) return;
 
@@ -157,6 +151,7 @@ public class demo2_gazehaptics : MonoBehaviour
             Vector3 direction = (eyeGaze.transform.rotation * Vector3.forward).normalized;
             Ray ray = new Ray(Camera.transform.position, direction);
             RaycastHit hit;
+            //shape.transform.position = Camera.transform.position + direction * 3.0f;
 
             //平面との交差判定
             if (IntersectRayWithPlane(ray.origin, ray.direction, out hitPos))
@@ -179,6 +174,19 @@ public class demo2_gazehaptics : MonoBehaviour
                     hapticSources[i].volume = 0.0f;
                 }
             }
+
+            Debug.DrawRay(ray.origin, ray.direction * 15, Color.red);
+
+            //LineRendererコンポーネントの取得
+            linerend = this.GetComponent<LineRenderer>();
+
+            //線の太さを設定
+            linerend.startWidth = 0.04f;
+            linerend.endWidth = 0.04f;
+
+            //始点, 終点を設定し, 描画
+            linerend.SetPosition(0, ray.origin);
+            linerend.SetPosition(1, ray.origin + ray.direction * 15);
         }
     }
 }
