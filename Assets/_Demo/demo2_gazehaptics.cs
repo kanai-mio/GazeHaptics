@@ -4,6 +4,8 @@ using System.Collections.Generic;
 
 public class demo2_gazehaptics : MonoBehaviour
 {
+    public Animator animator;        // è„Ç≈ê›íËÇµÇΩAnimator
+
     OVREyeGaze eyeGaze;
     public Camera Camera;
 
@@ -141,6 +143,8 @@ public class demo2_gazehaptics : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("IsPlaying", audioSources[1].isPlaying);
+
         //Debug.Log(eyeGaze);
         if (eyeGaze == null) return;
 
