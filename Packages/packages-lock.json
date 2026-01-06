@@ -14,6 +14,13 @@
       },
       "hash": "754fafc1ff70bf3eea71cd04f3b24ecbd21e2d8a"
     },
+    "com.labstreaminglayer.lsl4unity": {
+      "version": "https://github.com/labstreaminglayer/LSL4Unity.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "75d54ab160edaf02d2173350bbd91f1afbdb66d8"
+    },
     "com.meta.xr.mrutilitykit": {
       "version": "68.0.1",
       "depth": 1,

@@ -1,13 +1,20 @@
 using UnityEngine;
+using System.Collections;
 using System.IO;
 using System.Collections.Generic;
+using LSL;
 
 public class main_GazeHaptics : MonoBehaviour
 {
+    public static main_GazeHaptics instance;
+
     OVREyeGaze eyeGaze;
     public Camera Camera;
 
     public Transform Head;
+
+    private StreamOutlet outlet;
+    private string[] sample = new string[1];
 
 
     //交差判定
@@ -65,7 +72,8 @@ public class main_GazeHaptics : MonoBehaviour
     {
         for (int i = 0; i < objectNum; i++)
         {
-            float vol = Mathf.Exp(-distances[i]);
+            //float vol = Mathf.Exp(-distances[i]);
+            float vol = 1 / (1 + distances[i] * distances[i]);
             hapticSources[i].volume = vol ;
             //Debug.Log("vol" + ": " + vol);
             //Debug.Log("vol" + i + ": " + hapticSources[i].volume);
@@ -114,12 +122,58 @@ public class main_GazeHaptics : MonoBehaviour
         }
     }
 
+    //タイムスタンプ
+    IEnumerator PlayAfterDelay()
+    {
+        // 5秒待って再生
+        yield return new WaitForSeconds(5f);
+
+        // --- ① 再生開始の LSL 時刻 ---
+        double t_start = LSL.LSL.local_clock();
+        sample[0] = "t_start";
+        outlet.push_sample(sample, t_start);
+
+        // AudioSource 再生
+        foreach (AudioSource audioSource in audioSources)
+        {
+            audioSource.Play();
+        }
+        foreach (AudioSource hapticSource in hapticSources)
+        {
+            hapticSource.Play();
+        }
+
+        Debug.Log($"Audio start at LSL time = {t_start}");
+
+        // --- ② 再生開始から60秒後にもう1度 LS 時刻を送信 ---
+        yield return new WaitForSeconds(60f);
+
+        double t_finish = LSL.LSL.local_clock();
+        sample[0] = "t_finish";
+        outlet.push_sample(sample, t_finish);
+
+        Debug.Log($"60 sec after start → LSL time = {t_finish}");
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         eyeGaze = GetComponent<OVREyeGaze>();
         //hitBool = false;
         isPlaying = false;
+
+        StreamInfo streamInfo = new StreamInfo(
+            "AudioTrigger",
+            "Markers",
+            1,
+            LSL.LSL.IRREGULAR_RATE,
+            channel_format_t.cf_double64,
+            System.Guid.NewGuid().ToString()
+        );
+
+        outlet = new StreamOutlet(streamInfo);
+
+        StartCoroutine(PlayAfterDelay());
     }
 
     // Update is called once per frame

@@ -6163,24 +6163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d58d868b66e8f14695bad3037de7eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectNum: 3
-  targetObjects:
-  - {fileID: 802823733}
-  - {fileID: 217164628}
-  - {fileID: 661218959}
-  scaleIntensity: 1
-  baseScales:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  fac:
-  - 0.4
-  - 0.3
-  - 1
-  audioSources:
-  - {fileID: 968408018}
-  - {fileID: 1586010156}
-  - {fileID: 1146617159}
 --- !u!1 &722915415
 GameObject:
   m_ObjectHideFlags: 0
@@ -12969,14 +12951,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf0897e5636f734d9e32e37dd70ee21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Cylinders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  hapticSources:
-  - {fileID: 479813269}
-  - {fileID: 1861897352}
-  - {fileID: 250172319}
 --- !u!1 &1430251210
 GameObject:
   m_ObjectHideFlags: 0

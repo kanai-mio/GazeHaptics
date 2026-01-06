@@ -2,7 +2,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
-using System.IO;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class pushButton2 : MonoBehaviour
 {
@@ -11,20 +12,46 @@ public class pushButton2 : MonoBehaviour
 
     public Text text;
     public Text header;
+    public Text targetText;
+
+    private bool ready = false;
+
+    IEnumerator ChangeText()
+    {
+        yield return new WaitForSeconds(10f);
+        targetText.text = "準備ができたらAボタンを押して\r\n視聴を始めてください";
+        ready = true;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         pushed = false;
-        
+        StartCoroutine(ChangeText());
     }
 
     void Update()
     {
         header.text = $"タスク2 ({IDdata.Times}/6)";
+
+        if (Gamepad.current == null) return;
+
+        IEnumerator ChangeText()
+        {
+            yield return new WaitForSeconds(10f);
+            targetText.text = "終了です\r\nHMDを外してください";
+        }
+
         try
         {
-            if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+            /*if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+            {
+                startTime = Time.time;
+                Debug.Log("pushed");
+                pushed = true;
+            }*/
+
+            if (Gamepad.current.buttonEast.wasPressedThisFrame)
             {
                 startTime = Time.time;
                 Debug.Log("pushed");
@@ -38,12 +65,12 @@ public class pushButton2 : MonoBehaviour
             Debug.LogError(e.Message);
         }
 
-        if(pushed)
+        if(pushed && ready)
         {
             float elapsedTime = Time.time - startTime;
             if (elapsedTime >= 3)
             {
-                SceneManager.LoadScene($"_scene2-{IDdata.scene}");
+                SceneManager.LoadScene($"_scene{IDdata.scene}");
             }
             else if(elapsedTime >= 2)
             {
