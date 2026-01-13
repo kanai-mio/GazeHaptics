@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
-using System.IO;
-using System.Collections.Generic;
+using AudioStream;
+using AudioStreamSupport;
+using UnityEngine.Audio;
+using System;
 using LSL;
 
 public class main_GazeHaptics : MonoBehaviour
@@ -28,6 +30,9 @@ public class main_GazeHaptics : MonoBehaviour
     //public bool pastBool = false;
 
     public int termNo;
+
+    //Audio Mixer
+    [SerializeField] private AudioMixer audioMixer;
 
     //audio
     public AudioSource[] audioSources;
@@ -158,6 +163,17 @@ public class main_GazeHaptics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //AudioSourceの出力デバイスの設定
+        var availableOutputs = FMOD_SystemW.AvailableOutputs(LogLevel.DEBUG, gameObject.name, null);
+
+        string audioDeviceName = "ヘッドホン (Oculus Virtual Audio Device)";
+        int audioIndex = availableOutputs.FindIndex(d => d.name == audioDeviceName);
+        audioMixer.SetFloat("audioOutputDeviceID", audioIndex);
+
+        string hapticDeviceName = "スピーカー (High Definition Audio Device)";
+        int hapticIndex = availableOutputs.FindIndex(d => d.name == hapticDeviceName);
+        audioMixer.SetFloat("hapticOutputDeviceID", hapticIndex);
+
         eyeGaze = GetComponent<OVREyeGaze>();
         //hitBool = false;
         isPlaying = false;

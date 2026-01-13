@@ -87,7 +87,11 @@ AudioMixerController:
   m_UpdateMode: 0
   m_ExposedParameters:
   - guid: 2b50bc8334f595349804c95a0ec19312
-    name: OutputDevice ID
+    name: OutputDeviceID
+  - guid: 10a06dc1a2410fb4083affd3a2e17784
+    name: audioOutputDeviceID
+  - guid: 56bd3a7e8a0b2814eb7f6be89fe0743c
+    name: hapticOutputDeviceID
   m_AudioMixerGroupViews:
   - guids:
     - e1004290e333a9f4cb8c5002f6c08283
