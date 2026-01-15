@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class abatar_vibration : MonoBehaviour
+public class object_vibration : MonoBehaviour
 {
     //object viibration
     public int objectNum;
     public Transform[] targetObjects;
     public float scaleIntensity = 1.0f; // ƒXƒP[ƒ‹‚Ì•Ï‰»‚Ì‹­‚³
-    public Vector3[] baseScales;
+    private Vector3[] baseScales;
     public float[] fac;
 
     //haptic

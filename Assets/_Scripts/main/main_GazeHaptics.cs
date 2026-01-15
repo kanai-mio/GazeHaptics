@@ -130,8 +130,8 @@ public class main_GazeHaptics : MonoBehaviour
     //タイムスタンプ
     IEnumerator PlayAfterDelay()
     {
-        // 5秒待って再生
-        yield return new WaitForSeconds(5f);
+        // 1秒待って再生
+        yield return new WaitForSeconds(1f);
 
         // --- ① 再生開始の LSL 時刻 ---
         double t_start = LSL.LSL.local_clock();
