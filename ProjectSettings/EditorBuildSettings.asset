@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/_UserStudy/2_main/last.unity
     guid: e517275bcd6f07b4f906a407fee599fa
   - enabled: 1
+    path: Assets/_UserStudy/1_practice/_scene0.unity
+    guid: c6ed0ea760b37194a9930b4ccc99f1be
+  - enabled: 1
+    path: Assets/_UserStudy/1_practice/finishScene0.unity
+    guid: 4369b4ad5df93de488c7b7494d731c92
+  - enabled: 1
     path: Assets/_UserStudy/2_main/_scene1.unity
     guid: 656e064f3c96e20408e6cec73a8ee972
   - enabled: 1

@@ -131,7 +131,7 @@ public class main_GazeHaptics : MonoBehaviour
     IEnumerator PlayAfterDelay()
     {
         // 1•b‘Ò‚Á‚ÄÄ¶
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.1f);
 
         // --- ‡@ Ä¶ŠJn‚Ì LSL  ---
         double t_start = LSL.LSL.local_clock();

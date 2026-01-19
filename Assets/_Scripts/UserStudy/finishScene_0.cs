@@ -19,7 +19,7 @@ public class finishScene_0 : MonoBehaviour
         float pastTime = Time.time - startTime; 
         if(pastTime > 30)
         {
-            SceneManager.LoadScene("last");
+            SceneManager.LoadScene("finishScene0");
         }
     }
 }

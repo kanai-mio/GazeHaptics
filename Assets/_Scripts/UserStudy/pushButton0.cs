@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.UI;
-using System.IO;
+using UnityEngine.InputSystem;
 
 public class pushButton0 : MonoBehaviour
 {
@@ -22,6 +22,12 @@ public class pushButton0 : MonoBehaviour
         try
         {
             if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+            {
+                startTime = Time.time;
+                Debug.Log("pushed");
+                pushed = true;
+            }
+            if (Gamepad.current.buttonEast.wasPressedThisFrame)
             {
                 startTime = Time.time;
                 Debug.Log("pushed");

@@ -12728,7 +12728,7 @@ MonoBehaviour:
   shape: {fileID: 0}
   isPlaying: 0
   termNo: 2
-  audioMixer: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   audioSources:
   - {fileID: 968408018}
   - {fileID: 1586010156}
@@ -12738,8 +12738,8 @@ MonoBehaviour:
   - {fileID: 1861897352}
   - {fileID: 250172319}
   hapticPoints:
-  - {x: 0, y: 1, z: 4.58}
-  - {x: -2, y: 1, z: 4.58}
+  - {x: 0, y: 1, z: 5}
+  - {x: -2, y: 1, z: 5}
   - {x: 2, y: 1, z: 5}
   objectNum: 3
   hitPos: {x: 0, y: 0, z: 0}
