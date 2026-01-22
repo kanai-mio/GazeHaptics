@@ -13,34 +13,26 @@ public class pushButton2 : MonoBehaviour
     public Text text;
     public Text header;
     public Text targetText;
-
+    
     private bool ready = false;
 
     IEnumerator ChangeText()
     {
         yield return new WaitForSeconds(10f);
-        targetText.text = "準備ができたらAボタンを押して\r\n視聴を始めてください";
+        targetText.text = "準備ができたら〇ボタンを押して\r\n視聴を始めてください";
         ready = true;
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        header.text = $"タスク {IDdata.Times}/6";
         pushed = false;
-        StartCoroutine(ChangeText());
     }
 
     void Update()
     {
-        header.text = $"タスク2 ({IDdata.Times}/6)";
-
         if (Gamepad.current == null) return;
-
-        IEnumerator ChangeText()
-        {
-            yield return new WaitForSeconds(10f);
-            targetText.text = "終了です\r\nHMDを外してください";
-        }
 
         try
         {
@@ -51,7 +43,13 @@ public class pushButton2 : MonoBehaviour
                 pushed = true;
             }*/
 
-            if (Gamepad.current.buttonEast.wasPressedThisFrame)
+            if (Input.GetKeyDown(KeyCode.Space) && ready == false)
+            {
+                Debug.Log("recode start");
+                StartCoroutine(ChangeText());
+            }
+
+            if (Gamepad.current.buttonEast.wasPressedThisFrame && ready == true)
             {
                 startTime = Time.time;
                 Debug.Log("pushed");

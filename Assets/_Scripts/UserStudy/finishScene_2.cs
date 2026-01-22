@@ -32,7 +32,7 @@ public class finishScene_2 : MonoBehaviour
     private List<EyeGazeData> dataList = new List<EyeGazeData>();
 
     private static string fileName = $"GazeData_ID{userID}_times{Times}_term{termNo}";
-    private string filePath = @"C:\Users\mio\Desktop\userstudy\GazeData\" + fileName + ".csv";
+    private string filePath = @"C:\Users\mio\Desktop\GazeHaptics_UserStudy\" + fileName + ".csv";
     void CreateCSV()
     {
         //CSVファイルにanswersを出力
@@ -76,10 +76,10 @@ public class finishScene_2 : MonoBehaviour
         }        
 
         float pastTime = currentTime - startTime;
-        if (pastTime > 62)
+        if (pastTime > 60)
         {
             CreateCSV();
-            SceneManager.LoadScene("finishScene");
+            SceneManager.LoadScene("last");
         }
     }
 }

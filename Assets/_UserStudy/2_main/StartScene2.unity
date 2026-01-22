@@ -1444,6 +1444,37 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00616638, y: -0.030066561, z: -0.020585023}
     m_Extent: {x: 0.033926036, y: 0.041736547, z: 0.054627255}
   m_DirtyAABB: 0
+--- !u!1 &248962883
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 248962884}
+  m_Layer: 0
+  m_Name: SLSManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &248962884
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 248962883}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.5368968, y: 0.87818277, z: 4.7274766}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251048671
 GameObject:
   m_ObjectHideFlags: 0
@@ -11902,10 +11933,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ff310b90e5fa14438fcbc89ca0b2e14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
-  Times: 0
-  Term: 0
-  scene: 0
+  ID: 1
+  Times: 1
+  Term: 1
+  scene: 1
 --- !u!1 &1812974370
 GameObject:
   m_ObjectHideFlags: 0
@@ -13990,3 +14021,4 @@ SceneRoots:
   - {fileID: 811817353}
   - {fileID: 1507445778}
   - {fileID: 1807159156}
+  - {fileID: 248962884}

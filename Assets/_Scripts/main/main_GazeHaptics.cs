@@ -15,7 +15,7 @@ public class main_GazeHaptics : MonoBehaviour
 
     public Transform Head;
 
-    private StreamOutlet outlet;
+    //private StreamOutlet outlet;
     private string[] sample = new string[1];
 
 
@@ -23,7 +23,7 @@ public class main_GazeHaptics : MonoBehaviour
     //public bool hitBool { get; private set; }
 
     //視線の先に配置するオブジェクト
-    public GameObject shape;
+    //public GameObject shape;
 
     //再生中かどうか
     public bool isPlaying = false;
@@ -122,7 +122,7 @@ public class main_GazeHaptics : MonoBehaviour
         {
             for (int i = 0; i < objectNum; i++)
             {
-                hapticSources[i].volume = 0.4f;
+                hapticSources[i].volume = 0.33f;
             }
         }
     }
@@ -131,12 +131,12 @@ public class main_GazeHaptics : MonoBehaviour
     IEnumerator PlayAfterDelay()
     {
         // 1秒待って再生
-        yield return new WaitForSeconds(0.1f);
+        //yield return new WaitForSeconds(0.1f);
 
         // --- ① 再生開始の LSL 時刻 ---
         double t_start = LSL.LSL.local_clock();
         sample[0] = "t_start";
-        outlet.push_sample(sample, t_start);
+        LSLManager.instance.markerOutlet.push_sample(sample, t_start);
 
         // AudioSource 再生
         foreach (AudioSource audioSource in audioSources)
@@ -155,7 +155,7 @@ public class main_GazeHaptics : MonoBehaviour
 
         double t_finish = LSL.LSL.local_clock();
         sample[0] = "t_finish";
-        outlet.push_sample(sample, t_finish);
+        LSLManager.instance.markerOutlet.push_sample(sample, t_finish);
 
         Debug.Log($"60 sec after start → LSL time = {t_finish}");
     }
@@ -163,6 +163,8 @@ public class main_GazeHaptics : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
+
         //AudioSourceの出力デバイスの設定
         var availableOutputs = FMOD_SystemW.AvailableOutputs(LogLevel.DEBUG, gameObject.name, null);
 
@@ -178,16 +180,16 @@ public class main_GazeHaptics : MonoBehaviour
         //hitBool = false;
         isPlaying = false;
 
-        StreamInfo streamInfo = new StreamInfo(
+        /*StreamInfo streamInfo = new StreamInfo(
             "AudioTrigger",
             "Markers",
             1,
             LSL.LSL.IRREGULAR_RATE,
             channel_format_t.cf_double64,
             System.Guid.NewGuid().ToString()
-        );
+        );*/
 
-        outlet = new StreamOutlet(streamInfo);
+        //outlet = new StreamOutlet(streamInfo);
 
         StartCoroutine(PlayAfterDelay());
     }
@@ -205,7 +207,7 @@ public class main_GazeHaptics : MonoBehaviour
             Vector3 direction = (eyeGaze.transform.rotation * Vector3.forward).normalized;
             Ray ray = new Ray(Camera.transform.position, direction);
             //RaycastHit hit;
-            shape.transform.position = Camera.transform.position + direction * 3.0f;
+            //shape.transform.position = Camera.transform.position + direction * 3.0f;
 
             hitPos = Camera.transform.position + direction * 5.0f;
 

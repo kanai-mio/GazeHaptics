@@ -14,20 +14,20 @@ public class EyeGazeLSLOutlet : MonoBehaviour
 
     void Start()
     {
-        int channelCount = 2; // 例：GazeX, GazeY の2チャンネル
+        //int channelCount = 2; // 例：GazeX, GazeY の2チャンネル
 
         // StreamInfo を作成
-        StreamInfo streamInfo = new StreamInfo(
-            StreamName,
-            StreamType,
-            channelCount,
+        /*StreamInfo streamInfo = new StreamInfo(
+            "UnityEyeGaze",
+            "Gaze",
+            2,
             LSL.LSL.IRREGULAR_RATE,   // サンプリングレート未定義
             channel_format_t.cf_float32,
             System.Guid.NewGuid().ToString()
-        );
+        );*/
 
-        outlet = new StreamOutlet(streamInfo);
-        sample = new float[channelCount];
+        //outlet = new StreamOutlet(streamInfo);
+        //sample = new float[2];
     }
 
     void Update()
@@ -42,15 +42,15 @@ public class EyeGazeLSLOutlet : MonoBehaviour
         sample[1] = gaze.y;
 
         // LSL に送信
-        outlet.push_sample(sample);
+        LSLManager.instance.gazeOutlet.push_sample(sample);
     }
 
     // テスト用：ランダムな視線データ
-    private Vector2 GetDummyGaze()
+    /*private Vector2 GetDummyGaze()
     {
         return new Vector2(
             Mathf.Clamp01(Random.value),
             Mathf.Clamp01(Random.value)
         );
-    }
+    }*/
 }

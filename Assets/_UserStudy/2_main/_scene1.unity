@@ -12758,7 +12758,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Camera: {fileID: 1764225007}
   Head: {fileID: 1764225006}
-  shape: {fileID: 0}
   isPlaying: 0
   termNo: 1
   audioMixer: {fileID: 24100000, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
@@ -12771,9 +12770,9 @@ MonoBehaviour:
   - {fileID: 1861897352}
   - {fileID: 250172319}
   hapticPoints:
-  - {x: -2, y: 1, z: 4.58}
-  - {x: 2, y: 1, z: 4.58}
   - {x: 0, y: 1, z: 5}
+  - {x: -2, y: 1, z: 5}
+  - {x: 2, y: 1, z: 5}
   objectNum: 3
   hitPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1422878596
