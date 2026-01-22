@@ -27,7 +27,7 @@ public class EyeGazeLSLOutlet : MonoBehaviour
         );*/
 
         //outlet = new StreamOutlet(streamInfo);
-        //sample = new float[2];
+        sample = new float[2];
     }
 
     void Update()
