@@ -60,7 +60,7 @@ public class finishScene_2 : MonoBehaviour
     void Start()
     {
         //isPlaying = true;
-        startTime = Time.time + 5.0f;
+        startTime = Time.time;
     }
 
     // Update is called once per frame

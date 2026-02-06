@@ -4737,7 +4737,7 @@ Transform:
   m_GameObject: {fileID: 502289948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.5735764, z: -0, w: 0.8191521}
-  m_LocalPosition: {x: 2.66, y: 0, z: 4.72}
+  m_LocalPosition: {x: 2.954, y: 0, z: 4.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -11894,6 +11894,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StreamName: UnityEyeGaze
   StreamType: Gaze
+  targets:
+  - targetName: guitar
+    centerPos: {x: 0, y: 1.5}
+    radiusX: 0.42
+    radiusY: 0.42
+    gazeTimer: 0
+    isTriggered: 0
+  - targetName: drum
+    centerPos: {x: -2.5, y: 0.9}
+    radiusX: 0.64
+    radiusY: 0.64
+    gazeTimer: 0
+    isTriggered: 0
+  - targetName: piano
+    centerPos: {x: 2.5, y: 0.9}
+    radiusX: 0.61
+    radiusY: 0.61
+    gazeTimer: 0
+    isTriggered: 0
 --- !u!4 &1321449653
 Transform:
   m_ObjectHideFlags: 0

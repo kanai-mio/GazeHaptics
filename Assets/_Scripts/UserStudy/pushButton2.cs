@@ -25,13 +25,13 @@ public class pushButton2 : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
-        header.text = $"タスク {IDdata.Times}/6";
+    {        
         pushed = false;
     }
 
     void Update()
     {
+        header.text = $"タスク {IDdata.Times}/6";
         if (Gamepad.current == null) return;
 
         try
