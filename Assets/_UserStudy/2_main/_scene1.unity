@@ -11894,25 +11894,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StreamName: UnityEyeGaze
   StreamType: Gaze
-  targets:
-  - targetName: guitar
-    centerPos: {x: 0, y: 1.5}
-    radiusX: 0.42
-    radiusY: 0.42
-    gazeTimer: 0
-    isTriggered: 0
-  - targetName: drum
-    centerPos: {x: -2.5, y: 0.9}
-    radiusX: 0.64
-    radiusY: 0.64
-    gazeTimer: 0
-    isTriggered: 0
-  - targetName: piano
-    centerPos: {x: 2.5, y: 0.9}
-    radiusX: 0.61
-    radiusY: 0.61
-    gazeTimer: 0
-    isTriggered: 0
+  gazeTimer:
+  - 0
+  - 0
+  - 0
+  isTriggered: 000000
+  targetName:
+  - guitar
+  - drum
+  - piano
 --- !u!4 &1321449653
 Transform:
   m_ObjectHideFlags: 0

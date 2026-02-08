@@ -69,8 +69,6 @@ public class EyeGazeLSLOutlet : MonoBehaviour
 
     void Update()
     {
-        //Vector2 gaze = GetDummyGaze(); // あとで自分のデバイスの関数に差し替える
-
         Vector3 gaze = main_GazeHaptics.instance.hitPos;
 
         sample_g[0] = gaze.x;
