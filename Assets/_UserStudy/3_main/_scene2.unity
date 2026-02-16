@@ -2309,10 +2309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 8534738574930984696, guid: 72d98e1e8734cd74682287b1b9fa409e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 422489689}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72d98e1e8734cd74682287b1b9fa409e, type: 3}
 --- !u!4 &217164628 stripped
@@ -2591,7 +2588,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 76b5b3688d81a89469996ccdbf98aad4, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 1eeea2dafd3accb4684220039bb4eca3, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3950,7 +3947,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 217164628}
+    m_TransformParent: {fileID: 502289949}
     m_Modifications:
     - target: {fileID: 4871363916267327541, guid: e558464d4401e1e41b472eba1fe30ec4, type: 3}
       propertyPath: m_RootOrder
@@ -3966,7 +3963,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4871363916267327541, guid: e558464d4401e1e41b472eba1fe30ec4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.154
+      value: 1.1540002
       objectReference: {fileID: 0}
     - target: {fileID: 4871363916267327541, guid: e558464d4401e1e41b472eba1fe30ec4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3978,7 +3975,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4871363916267327541, guid: e558464d4401e1e41b472eba1fe30ec4, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.77421325
+      value: 0.7742132
       objectReference: {fileID: 0}
     - target: {fileID: 4871363916267327541, guid: e558464d4401e1e41b472eba1fe30ec4, type: 3}
       propertyPath: m_LocalRotation.z
@@ -4523,7 +4520,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 62ad465a3a621a1488a0b5e46a27cab1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 80cb424068693684d9e9a96acb131f9f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4737,11 +4734,12 @@ Transform:
   m_GameObject: {fileID: 502289948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.5735764, z: -0, w: 0.8191521}
-  m_LocalPosition: {x: 2.954, y: 0, z: 4.72}
+  m_LocalPosition: {x: 2.66, y: 0, z: 4.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 217164628}
+  - {fileID: 422489689}
   - {fileID: 1451959883}
   m_Father: {fileID: 32810151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6160,9 +6158,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 722225229}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d58d868b66e8f14695bad3037de7eae, type: 3}
+  m_Script: {fileID: 11500000, guid: 480492dbf40948f4cb2583eeb3b2af5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectNum: 3
+  targetObjects:
+  - {fileID: 661218959}
+  - {fileID: 802823733}
+  - {fileID: 217164628}
+  scaleIntensity: 1
+  fac:
+  - 0.5
+  - 0.4
+  - 0.3
+  audioSources:
+  - {fileID: 968408018}
+  - {fileID: 1586010156}
+  - {fileID: 1146617159}
 --- !u!1 &722915415
 GameObject:
   m_ObjectHideFlags: 0
@@ -8711,7 +8723,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 4c152434dd87555499d63a24488a7cec, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ecdb4cfa150143e438d7bcecd0392209, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10566,7 +10578,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b4ce2682f05d92146be9858f21b2c915, type: 3}
+  m_audioClip: {fileID: 8300000, guid: f392777e36f5ac4478f26a477d422d8f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -11863,61 +11875,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260518439}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1321449651
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1321449653}
-  - component: {fileID: 1321449652}
-  m_Layer: 0
-  m_Name: LSLOutput
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1321449652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321449651}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c543d2b494886d4e920c959b55b4e46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  StreamName: UnityEyeGaze
-  StreamType: Gaze
-  gazeTimer:
-  - 0
-  - 0
-  - 0
-  isTriggered: 000000
-  targetName:
-  - guitar
-  - drum
-  - piano
---- !u!4 &1321449653
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1321449651}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.005546555, y: 1.990397, z: 1.6664264}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1334209773
 GameObject:
   m_ObjectHideFlags: 0
@@ -12575,7 +12532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -2.03
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12768,7 +12725,7 @@ MonoBehaviour:
   Camera: {fileID: 1764225007}
   Head: {fileID: 1764225006}
   isPlaying: 0
-  termNo: 1
+  termNo: 2
   audioMixer: {fileID: 24100000, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
   audioSources:
   - {fileID: 968408018}
@@ -12779,8 +12736,8 @@ MonoBehaviour:
   - {fileID: 1861897352}
   - {fileID: 250172319}
   hapticPoints:
-  - {x: 0, y: 1, z: 5}
   - {x: -2, y: 1, z: 5}
+  - {x: 0, y: 1, z: 5}
   - {x: 2, y: 1, z: 5}
   objectNum: 3
   hitPos: {x: 0, y: 0, z: 0}
@@ -14573,7 +14530,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 271b21f8df88dd94c8928bf13ed06aba, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 09a14e60d2a6df543ae1111fc9ac1293, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -16095,7 +16052,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0ce2804958c62f14282bcf0610b5a648, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 520052d73e6ff7c4eb0696f5f1493ef8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -18327,7 +18284,7 @@ Transform:
   m_GameObject: {fileID: 2099749035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.94658333, z: -0, w: 0.32245943}
-  m_LocalPosition: {x: -2.3578517, y: -0.45000005, z: 5.608791}
+  m_LocalPosition: {x: -0.19, y: -0.45000005, z: 5.64}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -18411,4 +18368,3 @@ SceneRoots:
   - {fileID: 2056222145}
   - {fileID: 1579348474}
   - {fileID: 32810151}
-  - {fileID: 1321449653}
