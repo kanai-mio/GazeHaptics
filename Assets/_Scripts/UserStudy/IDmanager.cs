@@ -8,6 +8,7 @@ public static class IDdata
     public static int Times;
     public static int termNo;
     public static int scene;
+    public static bool isVibration;
 }
 
 
@@ -17,6 +18,7 @@ public class IDmanager : MonoBehaviour
     public int Times;
     public int Term;
     public int scene;
+    public bool isVibration;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +27,7 @@ public class IDmanager : MonoBehaviour
         IDdata.Times = Times;
         IDdata.termNo = Term;
         IDdata.scene = scene;
+        IDdata.isVibration = isVibration;
     }
 }
 

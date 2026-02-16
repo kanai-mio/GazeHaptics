@@ -33,6 +33,9 @@ public class finishScene_2 : MonoBehaviour
 
     private static string fileName = $"GazeData_ID{userID}_times{Times}_term{termNo}";
     private string filePath = @"C:\Users\mio\Desktop\GazeHaptics_UserStudy\" + fileName + ".csv";
+
+    private float randTime;
+
     void CreateCSV()
     {
         //CSVファイルにanswersを出力
@@ -61,6 +64,11 @@ public class finishScene_2 : MonoBehaviour
     {
         //isPlaying = true;
         startTime = Time.time;
+        randTime = Random.Range(25.0f, 30.0f);
+        if (!IDdata.isVibration)
+        {
+            Debug.Log("randTime: " + randTime);
+        }
     }
 
     // Update is called once per frame
@@ -76,10 +84,22 @@ public class finishScene_2 : MonoBehaviour
         }        
 
         float pastTime = currentTime - startTime;
-        if (pastTime > 60)
+        if(IDdata.isVibration)
         {
-            CreateCSV();
-            SceneManager.LoadScene("last");
+            if (pastTime > 60)
+            {
+                CreateCSV();
+                SceneManager.LoadScene("last");
+            }
         }
+        else
+        {
+            if (pastTime > randTime)
+            {
+                CreateCSV();
+                SceneManager.LoadScene("last");
+            }
+        }
+        
     }
 }
