@@ -11950,6 +11950,7 @@ MonoBehaviour:
   Times: 1
   Term: 1
   scene: 1
+  isVibration: 1
 --- !u!1 &1812974370
 GameObject:
   m_ObjectHideFlags: 0
