@@ -9,6 +9,9 @@ public class main_GazeHaptics : MonoBehaviour
     public static main_GazeHaptics instance;
 
     OVREyeGaze eyeGaze;
+
+    private Vector3 lastGaze;
+
     public Camera Camera;
 
     public Transform Head;
@@ -21,7 +24,7 @@ public class main_GazeHaptics : MonoBehaviour
     //public GameObject shape;
 
     //çƒê∂íÜÇ©Ç«Ç§Ç©
-    public bool isPlaying = false;
+    private bool isPlaying = false;
     //public bool pastBool = false;
 
     public int termNo;
@@ -148,14 +151,16 @@ public class main_GazeHaptics : MonoBehaviour
         //hitBool = false;
         isPlaying = false;
 
-        foreach (AudioSource audioSource in audioSources)
+        lastGaze = Vector3.zero;
+
+        /*foreach (AudioSource audioSource in audioSources)
         {
             audioSource.Play();
         }
         foreach (AudioSource hapticSource in hapticSources)
         {
             hapticSource.Play();
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -198,6 +203,10 @@ public class main_GazeHaptics : MonoBehaviour
                     hapticSources[i].volume = 0.0f;
                 }
             }
+
+
+
+            lastGaze = hitPos;
         }
     }
 }

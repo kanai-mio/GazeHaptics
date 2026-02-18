@@ -7,6 +7,8 @@ using System.IO;
 
 public class finishScene_2 : MonoBehaviour
 {
+    public static finishScene_2 instance;
+
     public class EyeGazeData
     {
         public float Time { get; set; }
@@ -29,12 +31,14 @@ public class finishScene_2 : MonoBehaviour
     private static int userID = IDdata.userID;
     private static int termNo = IDdata.termNo;
     private static int Times = IDdata.Times;
+    private static int isVib = IDdata.isVibration ? 1 : 0;
     private List<EyeGazeData> dataList = new List<EyeGazeData>();
 
-    private static string fileName = $"GazeData_ID{userID}_times{Times}_term{termNo}";
+    private static string fileName = $"GazeData_ID{userID}_times{Times}_term{termNo}_viblation{isVib}";
     private string filePath = @"C:\Users\mio\Desktop\GazeHaptics_UserStudy\" + fileName + ".csv";
 
     private float randTime;
+    public float playTime;
 
     void CreateCSV()
     {
@@ -62,12 +66,18 @@ public class finishScene_2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         //isPlaying = true;
         startTime = Time.time;
         randTime = Random.Range(25.0f, 30.0f);
         if (!IDdata.isVibration)
         {
             Debug.Log("randTime: " + randTime);
+            playTime = randTime;
+        }
+        else
+        {
+            playTime = 60f;
         }
     }
 
@@ -84,22 +94,10 @@ public class finishScene_2 : MonoBehaviour
         }        
 
         float pastTime = currentTime - startTime;
-        if(IDdata.isVibration)
+        if (pastTime > playTime)
         {
-            if (pastTime > 60)
-            {
-                CreateCSV();
-                SceneManager.LoadScene("last");
-            }
+            CreateCSV();
+            SceneManager.LoadScene("last");
         }
-        else
-        {
-            if (pastTime > randTime)
-            {
-                CreateCSV();
-                SceneManager.LoadScene("last");
-            }
-        }
-        
     }
 }

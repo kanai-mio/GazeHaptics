@@ -32,6 +32,9 @@ public class EyeGazeLSLOutlet : MonoBehaviour
     public bool[] isTriggered = new bool[3];
     public string[] targetName = new string[3];
 
+    private Vector3 lastGaze;
+
+
     //タイムスタンプ
     IEnumerator SendMarkers()
     {
@@ -45,13 +48,13 @@ public class EyeGazeLSLOutlet : MonoBehaviour
         Debug.Log($"Audio start at LSL time = {t_start}");
 
         // --- ② 再生開始から60秒後にもう1度 LS 時刻を送信 ---
-        yield return new WaitForSeconds(60f);
+        yield return new WaitForSeconds(finishScene_2.instance.playTime);
 
         double t_finish = LSL.LSL.local_clock();
         sample_m[0] = "t_finish";
         LSLManager.instance.markerOutlet.push_sample(sample_m, t_finish);
 
-        Debug.Log($"60 sec after start → LSL time = {t_finish}");
+        Debug.Log($"Audio finish at LSL time = {t_finish}");
     }
 
     void SendEventMarker(string name)
@@ -64,12 +67,18 @@ public class EyeGazeLSLOutlet : MonoBehaviour
     void Start()
     {
         sample_g = new float[2];
-        StartCoroutine(SendMarkers());
+        //StartCoroutine(SendMarkers());
+        lastGaze = Vector3.zero;
     }
 
     void Update()
     {
         Vector3 gaze = main_GazeHaptics.instance.hitPos;
+
+        if(lastGaze == Vector3.zero && gaze != Vector3.zero)
+        {
+            StartCoroutine(SendMarkers());
+        }
 
         sample_g[0] = gaze.x;
         sample_g[1] = gaze.y;
@@ -111,6 +120,8 @@ public class EyeGazeLSLOutlet : MonoBehaviour
                 isTriggered[i] = false;
             }
         }
+
+        lastGaze = gaze;
 
         /*foreach (var target in targets)
         {

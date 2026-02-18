@@ -18,7 +18,8 @@ public class pushButton2 : MonoBehaviour
 
     IEnumerator ChangeText()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
         targetText.text = "準備ができたら〇ボタンを押して\r\n視聴を始めてください";
         ready = true;
     }
@@ -32,16 +33,16 @@ public class pushButton2 : MonoBehaviour
     void Update()
     {
         header.text = $"タスク {IDdata.Times}/6";
-        if (Gamepad.current == null) return;
+        //if (Gamepad.current == null) return;
 
         try
         {
-            /*if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+            if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) && ready == true)
             {
                 startTime = Time.time;
                 Debug.Log("pushed");
                 pushed = true;
-            }*/
+            }
 
             if (Input.GetKeyDown(KeyCode.Space) && ready == false)
             {
@@ -49,12 +50,12 @@ public class pushButton2 : MonoBehaviour
                 StartCoroutine(ChangeText());
             }
 
-            if (Gamepad.current.buttonEast.wasPressedThisFrame && ready == true)
+            /*if (Gamepad.current.buttonEast.wasPressedThisFrame && ready == true)
             {
                 startTime = Time.time;
                 Debug.Log("pushed");
                 pushed = true;
-            }
+            }*/
         }
 
         // If any exceptions occur, we catch and log them here.
