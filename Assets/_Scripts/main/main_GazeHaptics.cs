@@ -10,7 +10,7 @@ public class main_GazeHaptics : MonoBehaviour
 
     OVREyeGaze eyeGaze;
 
-    private Vector3 lastGaze;
+    
 
     public Camera Camera;
 
@@ -24,7 +24,7 @@ public class main_GazeHaptics : MonoBehaviour
     //public GameObject shape;
 
     //çƒê∂íÜÇ©Ç«Ç§Ç©
-    private bool isPlaying = false;
+    public bool isPlaying = false;
     //public bool pastBool = false;
 
     public int termNo;
@@ -44,7 +44,8 @@ public class main_GazeHaptics : MonoBehaviour
     public int objectNum;
 
     //gaze point
-    public Vector3 hitPos;
+    public Vector3 hitPos = Vector3.zero;
+    private Vector3 lastGaze = Vector3.zero;
 
     //éãì_ç¿ïWÇÃéÊìæ
     bool IntersectRayWithPlane(Vector3 rayOrigin, Vector3 rayDirection, out Vector3 hitPos)
@@ -203,11 +204,22 @@ public class main_GazeHaptics : MonoBehaviour
                     hapticSources[i].volume = 0.0f;
                 }
             }
-
-
-
-            lastGaze = hitPos;
         }
+
+        if (lastGaze == Vector3.zero && hitPos != Vector3.zero && isPlaying == false)
+        {
+            foreach (AudioSource audioSource in audioSources)
+            {
+                audioSource.Play();
+            }
+            foreach (AudioSource hapticSource in hapticSources)
+            {
+                hapticSource.Play();
+            }
+            isPlaying = true;
+        }
+
+        lastGaze = hitPos;
     }
 }
 
