@@ -21,13 +21,20 @@ public class pushButton0 : MonoBehaviour
     {
         try
         {
-            if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+            /*if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
             {
                 startTime = Time.time;
                 Debug.Log("pushed");
                 pushed = true;
             }
             if (Gamepad.current.buttonEast.wasPressedThisFrame)
+            {
+                startTime = Time.time;
+                Debug.Log("pushed");
+                pushed = true;
+            }*/
+
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 startTime = Time.time;
                 Debug.Log("pushed");

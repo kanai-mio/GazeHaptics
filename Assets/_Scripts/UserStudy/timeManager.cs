@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -14,24 +14,24 @@ public class timeManager : MonoBehaviour
     {
         string[] sample_m = new string[1];
 
-        // --- ‡@ Ä¶ŠJn‚Ì LSL  ---
+        // --- start marker ---
         double t_start = LSL.LSL.local_clock();
         sample_m[0] = "t_start";
         LSLManager.instance.markerOutlet.push_sample(sample_m, t_start);
 
         Debug.Log($"Audio start at LSL time = {t_start}");
 
-        // --- ‡A Ä¶ŠJn‚©‚ç60•bŒã‚É‚à‚¤1“x LS ‚ğ‘—M ---
+        // --- finish marker ---
         yield return new WaitForSeconds(randTime);
 
         double t_finish = LSL.LSL.local_clock();
         sample_m[0] = "t_finish";
         LSLManager.instance.markerOutlet.push_sample(sample_m, t_finish);
 
-        Debug.Log($"60 sec after start ¨ LSL time = {t_finish}");
+        Debug.Log($"60 sec after start ÂÂ¨ LSL time = {t_finish}");
 
         yield return new WaitForSeconds(5.0f);
-        targetText.text = "I—¹‚Å‚·";
+        targetText.text = "ÂFinished";
     }
 
     // Start is called before the first frame update
@@ -48,7 +48,7 @@ public class timeManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isMeasuring == false)
         {
             Debug.Log("recode start");
-            targetText.text = "‘ª’è’†\r\n‰½‚àl‚¦‚¸Šy‚É‚µ‚Ä‚¢‚Ä‚­‚¾‚³‚¢";
+            targetText.text = "Recording";
             StartCoroutine(SendMarkers());
             isMeasuring = true;
         }

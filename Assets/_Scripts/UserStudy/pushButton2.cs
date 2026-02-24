@@ -16,13 +16,13 @@ public class pushButton2 : MonoBehaviour
     
     private bool ready = false;
 
-    IEnumerator ChangeText()
+    /*IEnumerator ChangeText()
     {
         yield return new WaitForSeconds(3f);
         //yield return new WaitForSeconds(3f);
-        targetText.text = "€”õ‚ª‚Å‚«‚½‚çZƒ{ƒ^ƒ“‚ð‰Ÿ‚µ‚Ä\r\nŽ‹’®‚ðŽn‚ß‚Ä‚­‚¾‚³‚¢";
+        targetText.text = "";
         ready = true;
-    }
+    }*/
 
     // Start is called before the first frame update
     void Start()
@@ -32,12 +32,12 @@ public class pushButton2 : MonoBehaviour
 
     void Update()
     {
-        header.text = $"ƒ^ƒXƒN {IDdata.Times}/6";
+        header.text = $"{IDdata.Times}/6";
         //if (Gamepad.current == null) return;
 
         try
         {
-            if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) && ready == true)
+            /*if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch) && ready == true)
             {
                 startTime = Time.time;
                 Debug.Log("pushed");
@@ -48,7 +48,7 @@ public class pushButton2 : MonoBehaviour
             {
                 Debug.Log("recode start");
                 StartCoroutine(ChangeText());
-            }
+            }*/
 
             /*if (Gamepad.current.buttonEast.wasPressedThisFrame && ready == true)
             {
@@ -56,6 +56,13 @@ public class pushButton2 : MonoBehaviour
                 Debug.Log("pushed");
                 pushed = true;
             }*/
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                startTime = Time.time;
+                Debug.Log("pushed");
+                pushed = true;
+            }
         }
 
         // If any exceptions occur, we catch and log them here.
@@ -64,7 +71,7 @@ public class pushButton2 : MonoBehaviour
             Debug.LogError(e.Message);
         }
 
-        if(pushed && ready)
+        if(pushed /*&& ready*/)
         {
             float elapsedTime = Time.time - startTime;
             if (elapsedTime >= 3)

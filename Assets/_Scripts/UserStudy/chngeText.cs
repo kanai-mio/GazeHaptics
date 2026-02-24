@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -14,7 +14,7 @@ public class changeText : MonoBehaviour
     IEnumerator ChangeText()
     {
         yield return new WaitForSeconds(10f);
-        targetText.text = "I—¹‚Å‚·\r\nHMD‚ğŠO‚µ‚Ä‚­‚¾‚³‚¢";
+        targetText.text = "Âçµ‚äº†ã—ã¾ã—ãŸ\r\nHMDã‚’å¤–ã—ã¦ãã ã•ã„";
     }
 }
 

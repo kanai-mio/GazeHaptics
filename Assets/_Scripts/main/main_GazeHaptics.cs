@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using AudioStream;
 using AudioStreamSupport;
 using UnityEngine.Audio;
@@ -17,13 +17,13 @@ public class main_GazeHaptics : MonoBehaviour
     public Transform Head;
 
 
-    //Œğ·”»’è
+    //Å’Ã°ÂÂ·â€Â»â€™Ã¨
     //public bool hitBool { get; private set; }
 
-    //‹ü‚Ìæ‚É”z’u‚·‚éƒIƒuƒWƒFƒNƒg
+    //Å½â€¹ÂÃ¼â€šÃŒÂÃ¦â€šÃ‰â€zâ€™uâ€šÂ·â€šÃ©Æ’IÆ’uÆ’WÆ’FÆ’NÆ’g
     //public GameObject shape;
 
-    //Ä¶’†‚©‚Ç‚¤‚©
+    //ÂÃ„ÂÂ¶â€™â€ â€šÂ©â€šÃ‡â€šÂ¤â€šÂ©
     public bool isPlaying = false;
     //public bool pastBool = false;
 
@@ -47,31 +47,31 @@ public class main_GazeHaptics : MonoBehaviour
     public Vector3 hitPos = Vector3.zero;
     private Vector3 lastGaze = Vector3.zero;
 
-    //‹“_À•W‚Ìæ“¾
+    //Å½â€¹â€œ_ÂÃ€â€¢Wâ€šÃŒÅ½Ã¦â€œÂ¾
     bool IntersectRayWithPlane(Vector3 rayOrigin, Vector3 rayDirection, out Vector3 hitPos)
     {
         hitPos = Vector3.zero;
 
-        // ƒŒƒC‚ª•½–Ê‚Æ•½s‚©‚Ç‚¤‚©‚ğŠm”F
+        // Æ’Å’Æ’Câ€šÂªâ€¢Â½â€“ÃŠâ€šÃ†â€¢Â½Âsâ€šÂ©â€šÃ‡â€šÂ¤â€šÂ©â€šÃ°Å mâ€F
         if (Mathf.Approximately(rayDirection.z, 0))
         {
-            return false; // •½s‚ÅŒğ·‚µ‚È‚¢
+            return false; // â€¢Â½Âsâ€šÃ…Å’Ã°ÂÂ·â€šÂµâ€šÃˆâ€šÂ¢
         }
 
-        // t ‚ğŒvZ
+        // t â€šÃ°Å’vÅ½Z
         float t = (5.0f - rayOrigin.z) / rayDirection.z;
 
-        // t ‚ª³‚Ìê‡‚Ì‚İŒğ“_‚ğŒvZiƒŒƒC‚Ì‘O•û‚Ì‚İj
+        // t â€šÂªÂÂ³â€šÃŒÂÃªÂâ€¡â€šÃŒâ€šÃÅ’Ã°â€œ_â€šÃ°Å’vÅ½ZÂiÆ’Å’Æ’Câ€šÃŒâ€˜Oâ€¢Ã»â€šÃŒâ€šÃÂj
         if (t >= 0)
         {
             hitPos = rayOrigin + t * rayDirection;
             return true;
         }
 
-        return false; // ƒŒƒC‚ª•½–Ê‚ÌŒã•û‚ÉŒü‚¢‚Ä‚¢‚é
+        return false; // Æ’Å’Æ’Câ€šÂªâ€¢Â½â€“ÃŠâ€šÃŒÅ’Ã£â€¢Ã»â€šÃ‰Å’Ã¼â€šÂ¢â€šÃ„â€šÂ¢â€šÃ©
     }
 
-    //U•‚ÌŒvZ
+    //ÂUâ€¢Ââ€šÃŒÅ’vÅ½Z
     void AdjustHapticAmplitude1(float[] distances)
     {
         for (int i = 0; i < objectNum; i++)
@@ -85,7 +85,7 @@ public class main_GazeHaptics : MonoBehaviour
     }
     void AdjustHapticAmplitude2(float[] distances)
     {
-        int minIndex = 0;   // Å¬’l‚ğ’T‚·
+        int minIndex = 0;   // ÂÃ…ÂÂ¬â€™lâ€šÃ°â€™Tâ€šÂ·
         for (int i = 1; i < objectNum; i++)
         {
             if (distances[i] < distances[minIndex])
@@ -137,14 +137,14 @@ public class main_GazeHaptics : MonoBehaviour
             termNo = IDdata.termNo;
         }    
 
-        //AudioSource‚Ìo—ÍƒfƒoƒCƒX‚Ìİ’è
+        //AudioSource output device setup
         var availableOutputs = FMOD_SystemW.AvailableOutputs(LogLevel.DEBUG, gameObject.name, null);
 
-        string audioDeviceName = "ƒwƒbƒhƒzƒ“ (Oculus Virtual Audio Device)";
+        string audioDeviceName = "Headphones (Oculus Virtual Audio Device)";
         int audioIndex = availableOutputs.FindIndex(d => d.name == audioDeviceName);
         audioMixer.SetFloat("audioOutputDeviceID", audioIndex);
 
-        string hapticDeviceName = "ƒXƒs[ƒJ[ (High Definition Audio Device)";
+        string hapticDeviceName = "ã‚¹ãƒ”ãƒ¼ã‚«ãƒ¼ (Realtek(R) Audio)";
         int hapticIndex = availableOutputs.FindIndex(d => d.name == hapticDeviceName);
         audioMixer.SetFloat("hapticOutputDeviceID", hapticIndex);
 
@@ -154,14 +154,14 @@ public class main_GazeHaptics : MonoBehaviour
 
         lastGaze = Vector3.zero;
 
-        /*foreach (AudioSource audioSource in audioSources)
+        foreach (AudioSource audioSource in audioSources)
         {
             audioSource.Play();
         }
         foreach (AudioSource hapticSource in hapticSources)
         {
             hapticSource.Play();
-        }*/
+        }
     }
 
     // Update is called once per frame
@@ -170,10 +170,10 @@ public class main_GazeHaptics : MonoBehaviour
         //Debug.Log(eyeGaze);
         if (eyeGaze == null) return;
 
-        // ƒAƒCƒgƒ‰ƒbƒLƒ“ƒO‚Ì—LŒø
+        // Æ’AÆ’CÆ’gÆ’â€°Æ’bÆ’LÆ’â€œÆ’Oâ€šÃŒâ€”LÅ’Ã¸Å½Å¾
         if (eyeGaze.EyeTrackingEnabled)
         {
-            // ‹ü‚Ì“¯Šú
+            // Å½â€¹ÂÃ¼â€šÃŒâ€œÂ¯Å Ãº
             Vector3 direction = (eyeGaze.transform.rotation * Vector3.forward).normalized;
             Ray ray = new Ray(Camera.transform.position, direction);
             //RaycastHit hit;
@@ -181,7 +181,7 @@ public class main_GazeHaptics : MonoBehaviour
 
             hitPos = Camera.transform.position + direction * 5.0f;
 
-            //•½–Ê‚Æ‚ÌŒğ·”»’è
+            //â€¢Â½â€“ÃŠâ€šÃ†â€šÃŒÅ’Ã°ÂÂ·â€Â»â€™Ã¨
             if (IntersectRayWithPlane(ray.origin, ray.direction, out hitPos))
             {
                 float[] distances = new float[objectNum];
@@ -206,7 +206,7 @@ public class main_GazeHaptics : MonoBehaviour
             }
         }
 
-        if (lastGaze == Vector3.zero && hitPos != Vector3.zero && isPlaying == false)
+        /*if (lastGaze == Vector3.zero && hitPos != Vector3.zero && isPlaying == false)
         {
             foreach (AudioSource audioSource in audioSources)
             {
@@ -219,7 +219,7 @@ public class main_GazeHaptics : MonoBehaviour
             isPlaying = true;
         }
 
-        lastGaze = hitPos;
+        lastGaze = hitPos;*/
     }
 }
 
