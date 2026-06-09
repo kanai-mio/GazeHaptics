@@ -39,6 +39,7 @@ public class finishScene_2 : MonoBehaviour
 
     private float randTime;
     public float playTime;
+    private bool pastBool = false;
 
     void CreateCSV()
     {
@@ -68,7 +69,7 @@ public class finishScene_2 : MonoBehaviour
     {
         instance = this;
         //isPlaying = true;
-        startTime = Time.time;
+        //startTime = Time.time;
         randTime = Random.Range(25.0f, 30.0f);
         if (!IDdata.isVibration)
         {
@@ -84,6 +85,13 @@ public class finishScene_2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!pastBool && main_GazeHaptics.instance.isPlaying)
+        {
+            startTime = Time.time;
+        }
+
+        pastBool = main_GazeHaptics.instance.isPlaying;
+
         float currentTime = Time.time;
         if (currentTime > startTime)
         {

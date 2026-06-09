@@ -10,20 +10,18 @@ public class main_GazeHaptics : MonoBehaviour
 
     OVREyeGaze eyeGaze;
 
-    
-
     public Camera Camera;
 
     public Transform Head;
 
 
-    //Œð·”»’è
+    //object hit bool
     //public bool hitBool { get; private set; }
 
-    //Ž‹ü‚Ìæ‚É”z’u‚·‚éƒIƒuƒWƒFƒNƒg
+    //gaze point object
     //public GameObject shape;
 
-    //Ä¶’†‚©‚Ç‚¤‚©
+    //statas
     public bool isPlaying = false;
     //public bool pastBool = false;
 
@@ -47,7 +45,7 @@ public class main_GazeHaptics : MonoBehaviour
     public Vector3 hitPos = Vector3.zero;
     private Vector3 lastGaze = Vector3.zero;
 
-    //Ž‹“_À•W‚ÌŽæ“¾
+    //detect gaze point
     bool IntersectRayWithPlane(Vector3 rayOrigin, Vector3 rayDirection, out Vector3 hitPos)
     {
         hitPos = Vector3.zero;
@@ -154,14 +152,14 @@ public class main_GazeHaptics : MonoBehaviour
 
         lastGaze = Vector3.zero;
 
-        foreach (AudioSource audioSource in audioSources)
+        /*foreach (AudioSource audioSource in audioSources)
         {
             audioSource.Play();
         }
         foreach (AudioSource hapticSource in hapticSources)
         {
             hapticSource.Play();
-        }
+        }*/
     }
 
     // Update is called once per frame
@@ -206,7 +204,7 @@ public class main_GazeHaptics : MonoBehaviour
             }
         }
 
-        /*if (lastGaze == Vector3.zero && hitPos != Vector3.zero && isPlaying == false)
+        if (lastGaze == Vector3.zero && hitPos != Vector3.zero && isPlaying == false)
         {
             foreach (AudioSource audioSource in audioSources)
             {
@@ -219,7 +217,7 @@ public class main_GazeHaptics : MonoBehaviour
             isPlaying = true;
         }
 
-        lastGaze = hitPos;*/
+        lastGaze = hitPos;
     }
 }
 

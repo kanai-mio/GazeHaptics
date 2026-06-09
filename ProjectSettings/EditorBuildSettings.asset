@@ -21,17 +21,35 @@ EditorBuildSettings:
     path: Assets/_UserStudy/3_main/playScene/_scene2.unity
     guid: 9d80a148ecef9ee48bc5d42238d181ff
   - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene3.unity
+    guid: 8b8b157f2c160d14189c6b8a084823c0
+  - enabled: 1
     path: Assets/_UserStudy/3_main/playScene/_scene4.unity
     guid: 1ba8855bdf958c941b1dbb40a8539dbc
   - enabled: 1
     path: Assets/_UserStudy/3_main/playScene/_scene5.unity
     guid: a031f0da774629c47acd991d3c268066
   - enabled: 1
-    path: Assets/_UserStudy/3_main/playScene/_scene3.unity
-    guid: 8b8b157f2c160d14189c6b8a084823c0
-  - enabled: 1
     path: Assets/_UserStudy/3_main/playScene/_scene6.unity
     guid: e558a053e15d8514faebfdcb210e6a6f
+  - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene7.unity
+    guid: f82299953989c4f4ca89f0ef5ffa9943
+  - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene8.unity
+    guid: de378f5c7985de64aaab9ae600793a90
+  - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene9.unity
+    guid: 7327a5c87895c4d4bbcd7f0d5fca6298
+  - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene10.unity
+    guid: e688231e1c95fe644929f680babfa04d
+  - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene11.unity
+    guid: 3244f5d380c5fa34192d1076729b5b5d
+  - enabled: 1
+    path: Assets/_UserStudy/3_main/playScene/_scene12.unity
+    guid: f0adc7d89ba51b64588f9a10ad16d8aa
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bd726186c770db046896acdb3ea17243, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 93b19e471d70c5548977bb4c297fedff, type: 2}

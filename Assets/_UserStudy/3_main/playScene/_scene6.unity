@@ -2588,7 +2588,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 90298ec109d26414eb6fc51d8f4ac71f, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 74a4be87200e36948bbfef02ab66df89, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -3840,7 +3840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshType: 1
+  _meshType: 5
 --- !u!114 &408555038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3871,7 +3871,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skeletonType: 1
+  _skeletonType: 5
   _updateRootPose: 0
   _updateRootScale: 1
   _enablePhysicsCapsules: 0
@@ -4314,7 +4314,15 @@ MonoBehaviour:
   resetHmdPoseOnRelease: 1
   resetHmdPoseByMiddleMouseButton: 1
   activateKeys: 3201000031010000
+  activateKeyBindings:
+  - <Keyboard>/leftCtrl
+  - <Keyboard>/rightCtrl
+  - <Keyboard>/f1
   pitchKeys: 3401000033010000
+  pitchKeyBindings:
+  - <Keyboard>/leftAlt
+  - <Keyboard>/rightAlt
+  - <Keyboard>/f2
 --- !u!114 &449537591
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4327,18 +4335,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e933e81d3c20c74ea6fdc708a67e3a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  useRecommendedMSAALevel: 1
   _monoscopic: 0
   _sharpenType: 0
-  enableDynamicResolution: 0
+  _enableDynamicResolution: 0
   minDynamicResolutionScale: 1
   maxDynamicResolutionScale: 1
+  quest2MinDynamicResolutionScale: 0.7
+  quest2MaxDynamicResolutionScale: 1.3
+  quest3MinDynamicResolutionScale: 0.7
+  quest3MaxDynamicResolutionScale: 1.6
   minRenderScale: 0.7
   maxRenderScale: 1
   _headPoseRelativeOffsetRotation: {x: 0, y: 0, z: 0}
   _headPoseRelativeOffsetTranslation: {x: 0, y: 0, z: 0}
-  profilerTcpPort: 32419
-  expandMixedRealityCapturePropertySheet: 0
+  enableCoreMetricsRelease: 0
+  enableCoreMetricsDevelopment: 1
+  coreMetricVisibility:
+    visibleMemoryMetricStats: 0
+    visibleMemoryMetricGraphs: 0
+    visibleRenderMetricStats: 0
+    visibleRenderMetricGraphs: 0
   enableMixedReality: 0
   compositionMethod: 0
   extraHiddenLayers:
@@ -4378,6 +4394,7 @@ MonoBehaviour:
   requestEyeTrackingPermissionOnStartup: 1
   requestScenePermissionOnStartup: 1
   requestRecordAudioPermissionOnStartup: 0
+  requestPassthroughCameraAccessPermissionOnStartup: 0
   _localDimming: 1
   _trackingOriginType: 1
   usePositionTracking: 1
@@ -4391,6 +4408,7 @@ MonoBehaviour:
   SimultaneousHandsAndControllersEnabled: 0
   _readOnlyWideMotionModeHandPosesEnabled: 0
   wideMotionModeHandPosesEnabled: 0
+  dynamicResolutionVersion: 0
 --- !u!114 &449537592
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4520,7 +4538,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d73e27b174c7de14aa23455a12da8aae, type: 3}
+  m_audioClip: {fileID: 8300000, guid: e11b444fb62f65f4a8471b8aee304fac, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4734,7 +4752,7 @@ Transform:
   m_GameObject: {fileID: 502289948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7743182, z: -0, w: 0.63279647}
-  m_LocalPosition: {x: 0.033007476, y: 0, z: 5.0206614}
+  m_LocalPosition: {x: 0.625, y: 0, z: 5.319}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -6849,7 +6867,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc5c234723e3a54d8dd09b131117743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _meshType: 0
+  _meshType: 4
 --- !u!114 &762135252
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6880,7 +6898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2609c54f376cffc4da1ab9401cc1a36f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skeletonType: 0
+  _skeletonType: 4
   _updateRootPose: 0
   _updateRootScale: 1
   _enablePhysicsCapsules: 0
@@ -8723,7 +8741,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 91f28acf7effdb242847241d08618f0a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b35dc887f51f1eb4f84c59629fd254fe, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -10578,7 +10596,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 14396c63e76673f48a5cff78d4e999e5, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 7fd09a3355794de41818169de5dc1a71, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12532,7 +12550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.84
+      value: 2.497
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12540,11 +12558,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.02
+      value: 4.961
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.10250425
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -12552,7 +12570,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0.99473256
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalRotation.z
@@ -12564,7 +12582,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 180
+      value: 191.767
       objectReference: {fileID: 0}
     - target: {fileID: 8848339816170367432, guid: dd02cdc0f0718384d9134ec2693740f0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -12736,8 +12754,8 @@ MonoBehaviour:
   - {fileID: 1861897352}
   - {fileID: 250172319}
   hapticPoints:
-  - {x: 2, y: 1, z: 5}
-  - {x: -2, y: 1, z: 5}
+  - {x: 2.5, y: 1, z: 5}
+  - {x: -2.5, y: 1, z: 5}
   - {x: 0, y: 1, z: 5}
   objectNum: 3
   hitPos: {x: 0, y: 0, z: 0}
@@ -12753,6 +12771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f92f82ed52d1d8449c96e442e56000b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playTime: 0
   startTime: 0
 --- !u!1 &1430251210
 GameObject:
@@ -14072,6 +14091,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _ovrCameraRig: {fileID: 449537592}
+  _leftHand: {fileID: 0}
+  _rightHand: {fileID: 0}
   _requireOvrHands: 1
 --- !u!114 &1539390666
 MonoBehaviour:
@@ -14530,7 +14551,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -1744292341787158915, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: d37241fc71dbbd4479217c98a8b65eeb, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b026381f6daad404da1d4068984f8b75, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -15636,6 +15657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StreamName: UnityEyeGaze
   StreamType: Gaze
+  targets: []
   gazeTimer:
   - 0
   - 0
@@ -16107,7 +16129,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 453699a9c520aea4593424877ace9c6a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6fa427b16147f9d4cb2ae25bc7d73e61, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -18339,7 +18361,7 @@ Transform:
   m_GameObject: {fileID: 2099749035}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.902935, z: -0, w: 0.42977712}
-  m_LocalPosition: {x: -2.58, y: -0.45000005, z: 5.59}
+  m_LocalPosition: {x: -2.605, y: -0.45000005, z: 5.867}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

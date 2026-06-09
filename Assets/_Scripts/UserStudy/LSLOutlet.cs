@@ -36,6 +36,7 @@ public class EyeGazeLSLOutlet : MonoBehaviour
     public string[] targetName = new string[3];
 
     private Vector3 lastGaze;
+    private bool isPlaying = false;
 
 
     //タイムスタンプ
@@ -85,9 +86,10 @@ public class EyeGazeLSLOutlet : MonoBehaviour
     {
         Vector3 gaze = main_GazeHaptics.instance.hitPos;
 
-        if(lastGaze == Vector3.zero && gaze != Vector3.zero && main_GazeHaptics.instance.isPlaying == false)
+        if(lastGaze == Vector3.zero && gaze != Vector3.zero && !isPlaying)
         {
             StartCoroutine(SendMarkers());
+            isPlaying = true;
         }
 
         sample_g[0] = gaze.x;
@@ -114,34 +116,35 @@ public class EyeGazeLSLOutlet : MonoBehaviour
         {
             if (minIndex == i)
             {
-                /*// 範囲内：タイマー加算
+                // 
                 gazeTimer[i] += Time.deltaTime;
 
-                if (gazeTimer[i] >= 0.5f && !isTriggered[i])
+                /*if (gazeTimer[i] >= 0.5f && !isTriggered[i])
                 {
                     SendEventMarker(targetName[i]);
                     isTriggered[i] = true;
                 }*/
 
-                // 第1段階：0.5秒経過
+                // 0.5s passed
                 if (gazeTimer[i] >= 0.5f && eventLevel[i] < 1)
                 {
                     SendEventMarker(targetName[i] + "_0.5s");
-                    eventLevel[i] = 1; // 1段階目完了
+                    eventLevel[i] = 1;
                 }
 
-                // 第2段階：1.0秒経過
+                // 1.0s passed
                 if (gazeTimer[i] >= 1.0f && eventLevel[i] < 2)
                 {
                     SendEventMarker(targetName[i] + "_1.0s");
-                    eventLevel[i] = 2; // 2段階目完了
+                    eventLevel[i] = 2;
                 }
             }
             else
             {
-                // 範囲外：即座にリセット
+                // reset
                 gazeTimer[i] = 0f;
                 isTriggered[i] = false;
+                eventLevel[i] = 0;
             }
         }
 
@@ -159,24 +162,24 @@ public class EyeGazeLSLOutlet : MonoBehaviour
 
             if (ellipseEquation <= 1.0f)
             {
-                // --- 1. 範囲内に入った瞬間 (Enter) の判定 ---
+                // triggered
                 if (!target.isInside)
                 {
                     SendEventMarker_2(target.targetName + "_Enter");
                     target.isInside = true;
                 }
 
-                // --- 2. 滞在時間 (Dwell) の判定 ---
+                //
                 target.gazeTimer += Time.deltaTime;
 
-                // 0.5秒到達
+                // 0.5s
                 if (target.gazeTimer >= 0.5f && target.eventLevel < 1)
                 {
                     SendEventMarker_2(target.targetName + "_0.5s");
                     target.eventLevel = 1;
                 }
 
-                // 1.0秒到達
+                // 1.0s
                 if (target.gazeTimer >= 1.0f && target.eventLevel < 2)
                 {
                     SendEventMarker_2(target.targetName + "_1.0s");
@@ -185,7 +188,7 @@ public class EyeGazeLSLOutlet : MonoBehaviour
             }
             else
             {
-                // --- 3. 範囲外に出たときのリセット処理 ---
+                // out of trigger
                 if (target.isInside)
                 {
                     SendEventMarker_2(target.targetName + "_Exit");

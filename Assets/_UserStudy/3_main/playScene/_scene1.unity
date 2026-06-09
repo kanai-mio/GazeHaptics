@@ -2588,7 +2588,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 0956c36290bc67e41935ec51cedb0841, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c70aa1be80f2a3f44874cc794c09e5fe, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -4538,7 +4538,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 8eb6b2ef6e710fb4f8190970db77d490, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ff9ad5c6f84173c46a3ce2b32fcaa345, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -12811,8 +12811,8 @@ MonoBehaviour:
   - {fileID: 250172319}
   hapticPoints:
   - {x: 0, y: 1, z: 5}
-  - {x: -2, y: 1, z: 5}
-  - {x: 2, y: 1, z: 5}
+  - {x: -2.5, y: 1, z: 5}
+  - {x: 2.5, y: 1, z: 5}
   objectNum: 3
   hitPos: {x: 0, y: 0, z: 0}
 --- !u!114 &1422878596
@@ -16129,7 +16129,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 8097668723518678694, guid: 8f258bb0a91708a49b7e4da65a6858c3, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 2994127307939504dafb29fa17081649, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 98d9add76fcf8ca458ec8e4581099684, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
